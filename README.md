@@ -4,7 +4,7 @@ This is a fun 2D game of Snake written in C++ using SDL2 library.
 
 The SDL2 library (only a version for apple's OSX) is included in the repository. The game was written in Xcode IDE. To run the game simply open the Xcode project and compile.
 
-The actual snake is controlled with arrows (up, down, left, and right), escape key terminates the program. The game ends when the snake bites it's tail.
+The actual snake is controlled with arrows (up, down, left, and right), escape key terminates the program. The game ends when the snake bites its tail.
 
 
 This project was partly inspired by:
