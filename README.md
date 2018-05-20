@@ -10,4 +10,5 @@ The actual snake is controlled with arrows (up, down, left, and right), escape k
 This project was partly inspired by:
  - Sanhay Madhav's book Game Programming in C++ [Publisher's site](http://www.pearsoned.co.uk/bookshop/detail.asp?item=100000000644133)
  - Lazy Foo' [tutorials](http://lazyfoo.net/tutorials/SDL/index.php).
+ 
 where I borrowed some ideas.
