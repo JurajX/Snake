@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		F41C961420B0580F00E016F2 /* Surfaces.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F41C961220B0580F00E016F2 /* Surfaces.cpp */; };
-		F41C962F20B18EFC00E016F2 /* libSDL2_ttf-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C962D20B18EFC00E016F2 /* libSDL2_ttf-2.0.0.dylib */; };
-		F41C963020B18EFC00E016F2 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F41C962E20B18EFC00E016F2 /* libSDL2-2.0.0.dylib */; };
 		F4DAB53F20AB3D5D003F88A5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4DAB53E20AB3D5D003F88A5 /* main.cpp */; };
 		F4DAB54720AC8678003F88A5 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4DAB54520AC8677003F88A5 /* Game.cpp */; };
 		F4DAB55020ACA87F003F88A5 /* Sprites.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4DAB54E20ACA87F003F88A5 /* Sprites.cpp */; };
+		F4DD371520B2AD7300EE8079 /* libSDL2_image-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DD371220B2AD7200EE8079 /* libSDL2_image-2.0.0.dylib */; };
+		F4DD371620B2AD7300EE8079 /* libSDL2_ttf-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DD371320B2AD7200EE8079 /* libSDL2_ttf-2.0.0.dylib */; };
+		F4DD371720B2AD7300EE8079 /* libSDL2-2.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F4DD371420B2AD7200EE8079 /* libSDL2-2.0.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,14 +31,15 @@
 /* Begin PBXFileReference section */
 		F41C961220B0580F00E016F2 /* Surfaces.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Surfaces.cpp; sourceTree = "<group>"; };
 		F41C961320B0580F00E016F2 /* Surfaces.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Surfaces.hpp; sourceTree = "<group>"; };
-		F41C962D20B18EFC00E016F2 /* libSDL2_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_ttf-2.0.0.dylib"; path = "sdl2/2.0.8/lib/libSDL2_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
-		F41C962E20B18EFC00E016F2 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "sdl2/2.0.8/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 		F4DAB53B20AB3D5D003F88A5 /* Snake */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Snake; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DAB53E20AB3D5D003F88A5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		F4DAB54520AC8677003F88A5 /* Game.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
 		F4DAB54620AC8678003F88A5 /* Game.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Game.hpp; sourceTree = "<group>"; };
 		F4DAB54E20ACA87F003F88A5 /* Sprites.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Sprites.cpp; sourceTree = "<group>"; };
 		F4DAB54F20ACA87F003F88A5 /* Sprites.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Sprites.hpp; sourceTree = "<group>"; };
+		F4DD371220B2AD7200EE8079 /* libSDL2_image-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_image-2.0.0.dylib"; path = "sdl2/lib/libSDL2_image-2.0.0.dylib"; sourceTree = "<group>"; };
+		F4DD371320B2AD7200EE8079 /* libSDL2_ttf-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2_ttf-2.0.0.dylib"; path = "sdl2/lib/libSDL2_ttf-2.0.0.dylib"; sourceTree = "<group>"; };
+		F4DD371420B2AD7200EE8079 /* libSDL2-2.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libSDL2-2.0.0.dylib"; path = "sdl2/lib/libSDL2-2.0.0.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,8 +47,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F41C962F20B18EFC00E016F2 /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
-				F41C963020B18EFC00E016F2 /* libSDL2-2.0.0.dylib in Frameworks */,
+				F4DD371520B2AD7300EE8079 /* libSDL2_image-2.0.0.dylib in Frameworks */,
+				F4DD371620B2AD7300EE8079 /* libSDL2_ttf-2.0.0.dylib in Frameworks */,
+				F4DD371720B2AD7300EE8079 /* libSDL2-2.0.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,8 +82,9 @@
 		F4DAB54820AC8A74003F88A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F41C962D20B18EFC00E016F2 /* libSDL2_ttf-2.0.0.dylib */,
-				F41C962E20B18EFC00E016F2 /* libSDL2-2.0.0.dylib */,
+				F4DD371220B2AD7200EE8079 /* libSDL2_image-2.0.0.dylib */,
+				F4DD371320B2AD7200EE8079 /* libSDL2_ttf-2.0.0.dylib */,
+				F4DD371420B2AD7200EE8079 /* libSDL2-2.0.0.dylib */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -261,9 +265,9 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/,
-					"$(SRCROOT)/sdl2/2.0.8/include",
+					"$(SRCROOT)/sdl2/include",
 				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/sdl2/2.0.8/lib";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/sdl2/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -275,9 +279,9 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					/usr/include/,
-					"$(SRCROOT)/sdl2/2.0.8/include",
+					"$(SRCROOT)/sdl2/include",
 				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/sdl2/2.0.8/lib";
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/sdl2/lib";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

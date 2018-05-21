@@ -10,6 +10,7 @@
 
 #include "SDL2/SDL.h"
 #include "SDL2/SDL_ttf.h"
+#include "SDL2/SDL_image.h"
 #include "Sprites.hpp"
 #include "Surfaces.hpp"
 
@@ -28,20 +29,16 @@ private:
     void ProcessInput();
     void UpdateGame();
     void GenerateOutput();
-    
     void RenderPlayground(SDL_Renderer *renderer);
     void RenderScore(SDL_Renderer *renderer);
-    
-    SDL_Window *mWindow;
-    SDL_Renderer *mRenderer;
-    TTF_Font *mFont;
     
     bool mIsRunning;
     Uint32 mDelay;
     Uint32 mTicksCount;
-    
-    SDL_Point mPlaygroundTopLeft;
-    SDL_Point mScoreTopLeft;
+
+    SDL_Window *mWindow;
+    SDL_Renderer *mRenderer;
+    TTF_Font *mFont;
     
     Playground mPlayground;
     Score mScore;

@@ -19,7 +19,7 @@ public:
     Playground(SDL_Point top_left,
                SDL_Point dimensions,
                Uint32 pixel_format=SDL_PIXELFORMAT_RGBA32);
-    ~Playground();
+    void FreeSurfaces();
     void Clear();
     SDL_Surface *GetSurface();
     SDL_Point GetTopLeft();
@@ -39,7 +39,7 @@ public:
     Score(SDL_Point top_left,
           SDL_Point dimensions,
           Uint32 pixel_format=SDL_PIXELFORMAT_RGBA32);
-    ~Score();
+    void FreeSurfaces();
     void Update(int gained_score, TTF_Font *font);
     SDL_Surface *GetSurface();
     SDL_Point GetTopLeft();

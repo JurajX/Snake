@@ -7,7 +7,6 @@
 
 #include "Game.hpp"
 #include <algorithm>
-
 #include <iostream>
 
 
@@ -17,16 +16,16 @@ Game::Game(SDL_Point playground_top_left,
            SDL_Point score_top_left,
            SDL_Point score_dimensions,
            int tile_size)
-:mWindow(nullptr)
-,mRenderer(nullptr)
-,mFont(nullptr)
-,mIsRunning(true)
+:mIsRunning(true)
 ,mDelay(100)         // delay in ms between frames
 ,mTicksCount(0)
-,mPlayground(Playground(playground_top_left, playground_dimensions))
-,mScore(Score(score_top_left, score_dimensions))
-,mSnake(Snake(mPlayground.GetSurfaceDims(), tile_size))
-,mPellet(Pellet(mPlayground.GetSurfaceDims(), tile_size)) {}
+,mWindow(nullptr)
+,mRenderer(nullptr)
+,mFont(nullptr)
+,mPlayground(playground_top_left, playground_dimensions)
+,mScore(score_top_left, score_dimensions)
+,mSnake(mPlayground.GetSurfaceDims(), tile_size)
+,mPellet(mPlayground.GetSurfaceDims(), tile_size) {}
 
 
 bool Game::Initialise() {
@@ -50,6 +49,13 @@ bool Game::Initialise() {
     if (!mRenderer) {
         SDL_Log("Failed to create renderer: %s", SDL_GetError());
         return false;}
+    
+    int imgFlags = IMG_INIT_PNG; //| IMG_INIT_JPG | IMG_INIT_TIF;
+    int imgInit = IMG_Init(imgFlags);
+    if ((imgInit&imgFlags) != imgFlags) {
+        SDL_Log("Failed to initialise SDL_image: %s", IMG_GetError());
+        return false;
+    }
     
     if (TTF_Init()==-1) {
         SDL_Log("Failed to initialise SDL_ttf: %s", TTF_GetError());
@@ -154,8 +160,13 @@ void Game::RenderScore(SDL_Renderer *renderer) {
 }
 
 void Game::Shoutdown() {
+    mPellet.FreeSurfaces();
+    mSnake.FreeSurfaces();
+    mScore.FreeSurfaces();
+    mPlayground.FreeSurfaces();
     TTF_CloseFont(mFont);
-    // TODO destroy TTF
+    TTF_Quit();
+    IMG_Quit();
     SDL_DestroyRenderer(mRenderer);
     mRenderer = nullptr;
     SDL_DestroyWindow(mWindow);

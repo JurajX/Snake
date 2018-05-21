@@ -19,7 +19,7 @@ Playground::Playground(SDL_Point top_left, SDL_Point dimensions, Uint32 pixel_fo
     SDL_FillRect(mSurface, nullptr, SDL_MapRGBA(mSurface->format, 0, 0, 180, 255));
 }
 
-Playground::~Playground() {SDL_FreeSurface(mSurface);}
+void Playground::FreeSurfaces() {SDL_FreeSurface(mSurface);}
 
 void Playground::Clear() {
     SDL_FillRect(mSurface, nullptr, SDL_MapRGBA(mSurface->format, 0, 0, 180, 255));
@@ -44,7 +44,7 @@ Score::Score(SDL_Point top_left, SDL_Point dimensions, Uint32 pixel_format)
     SDL_FillRect(mSurface, nullptr, SDL_MapRGBA(mSurface->format, 250, 250, 250, 255));
 }
 
-Score::~Score() {SDL_FreeSurface(mSurface);}
+void Score::FreeSurfaces() {SDL_FreeSurface(mSurface);}
 
 void Score::Update(int gained_score, TTF_Font *font) {
     mScore += gained_score;
