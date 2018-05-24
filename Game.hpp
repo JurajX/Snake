@@ -14,6 +14,11 @@
 #include "Sprites.hpp"
 #include "Surfaces.hpp"
 
+
+// Sprites (snake & pellet) are first drawn on playground surface, and score is drawn of score surface.
+// This is done in the CPU memory. In the next step, score and playground surfaces are rendered on the
+// displayed window using textures (hardware acceleration).
+
 class Game {
 public:
     Game(SDL_Point playground_top_left,
@@ -29,8 +34,8 @@ private:
     void ProcessInput();
     void UpdateGame();
     void GenerateOutput();
-    void RenderPlayground(SDL_Renderer *renderer);
-    void RenderScore(SDL_Renderer *renderer);
+    void RenderPlayground();
+    void RenderScore();
     
     bool mIsRunning;
     Uint32 mDelay;
