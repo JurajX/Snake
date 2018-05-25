@@ -1,6 +1,7 @@
 # Snake
 
 This is a fun 2D game of Snake written in C++ using SDL2 library.
+The ultimate goal is to extend this game to a OpenAI gym-like environment for testing reinforcement learning algorithms which take only raw sensory input (pixels of the screen); and then, of course, test bunch of things on it.
 
 The SDL2 library (only a version for apple's OSX) is included in the repository. The game was written in Xcode IDE. To run the game simply open the Xcode project and compile.
 
