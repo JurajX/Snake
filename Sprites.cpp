@@ -19,7 +19,7 @@ int RandInt(int a, int b) {
     return a + random_int;
 }
 
-bool SDLpointsEqual(SDL_Point pt1, SDL_Point pt2) {
+bool operator==(const SDL_Point &pt1, const SDL_Point &pt2) {
     if (pt1.x == pt2.x and pt1.y == pt2.y) {return true;}
     else {return false;}
 }
@@ -161,7 +161,7 @@ int Snake::Update(SDL_Point pellet_top_left) {
         nextHead.front = Direction::LEFT;
     }
     
-    bool peletEaten = SDLpointsEqual(pellet_top_left, nextHead.pt) ? true : false;
+    bool peletEaten = (pellet_top_left == nextHead.pt) ? true : false;
     if (!peletEaten) {
         for (int i=0; i < mBodyParts.size()-1; i++) {
             mBodyParts[i] = mBodyParts[i+1];
@@ -194,7 +194,7 @@ void Snake::BlitOnPlayground(SDL_Surface *playground_surface) {
 
 bool Snake::ColidesWithPoint(SDL_Point position) {
     for (auto part: mBodyParts) {
-        if (SDLpointsEqual(part.pt, position)) {return true;}
+        if (part.pt == position) {return true;}
     }
     return false;
 }
@@ -203,7 +203,7 @@ bool Snake::ColidesWithPoint(SDL_Point position) {
 bool Snake::SelfColision() {
     SDL_Point headsTopLeft = {mBodyParts.back().pt};
     for (int i=0; i < mBodyParts.size()-1; i++) {
-        if (SDLpointsEqual(headsTopLeft, mBodyParts[i].pt)) {return true;}
+        if (headsTopLeft == mBodyParts[i].pt) {return true;}
     }
     return false;
 }
