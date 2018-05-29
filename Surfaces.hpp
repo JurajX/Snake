@@ -21,9 +21,9 @@ public:
                Uint32 pixel_format=SDL_PIXELFORMAT_RGBA32);
     void FreeSurfaces();
     void Clear();
-    SDL_Surface *GetSurface();
-    SDL_Point GetTopLeft();
-    SDL_Point GetSurfaceDims();
+    SDL_Surface *GetSurface() const;
+    SDL_Point GetTopLeft() const;
+    SDL_Point GetSurfaceDims() const;
 private:
     SDL_Point mTopLeft;
     SDL_Point mSurfaceDims;
@@ -41,9 +41,9 @@ public:
           Uint32 pixel_format=SDL_PIXELFORMAT_RGBA32);
     void FreeSurfaces();
     void Update(int gained_score, TTF_Font *font);
-    SDL_Surface *GetSurface();
-    SDL_Point GetTopLeft();
-    SDL_Point GetSurfaceDims();
+    SDL_Surface *GetSurface() const;
+    SDL_Point GetTopLeft() const;
+    SDL_Point GetSurfaceDims() const;
 private:
     SDL_Point mTopLeft;
     SDL_Point mSurfaceDims;

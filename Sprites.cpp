@@ -25,10 +25,10 @@ bool operator==(const SDL_Point &pt1, const SDL_Point &pt2) {
 }
 
 
-int Part::FrontToInt() { return static_cast<int>(front); }
+int Part::FrontToInt() const { return static_cast<int>(front); }
 
 
-int Part::BackToInt() {
+int Part::BackToInt() const {
     // Return the integer representation of opposite (reversed) direction,
     // i.e. front == Direction::UP(=1) the functiont returns 2(=Direction::DOWN).
     switch (front) {
@@ -192,7 +192,7 @@ void Snake::BlitOnPlayground(SDL_Surface *playground_surface) {
 }
 
 
-bool Snake::ColidesWithPoint(SDL_Point position) {
+bool Snake::ColidesWithPoint(SDL_Point position) const {
     for (auto part: mBodyParts) {
         if (part.pt == position) {return true;}
     }
@@ -200,7 +200,7 @@ bool Snake::ColidesWithPoint(SDL_Point position) {
 }
 
 
-bool Snake::SelfColision() {
+bool Snake::SelfColision() const {
     SDL_Point headsTopLeft = {mBodyParts.back().pt};
     for (int i=0; i < mBodyParts.size()-1; i++) {
         if (headsTopLeft == mBodyParts[i].pt) {return true;}
@@ -250,12 +250,12 @@ void Pellet::MoveRandomly() {
 }
 
 
-SDL_Point Pellet::GetTopLeft() {
+SDL_Point Pellet::GetTopLeft() const {
     return mTopLeft;
 }
 
 
-void Pellet::BlitOnPlayground(SDL_Surface *playground_surface) {
+void Pellet::BlitOnPlayground(SDL_Surface *playground_surface) const {
     // Draw the pellet on the playground surface.
     SDL_Rect dstRect = {mTopLeft.x, mTopLeft.y, mTileSize, mTileSize};
     SDL_BlitScaled(mSurfaces[mSurfaceIndex], nullptr, playground_surface, &dstRect);

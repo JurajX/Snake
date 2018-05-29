@@ -26,8 +26,8 @@ enum class Direction :int { UP=1, DOWN=2, RIGHT=4, LEFT=7 };
 struct Part {
     SDL_Point pt;
     Direction front;
-    int FrontToInt();
-    int BackToInt();
+    int FrontToInt() const;
+    int BackToInt() const;
 };
 
 
@@ -44,8 +44,8 @@ public:
     void SetNewDirection(Direction direction);
     int Update(SDL_Point pellet_top_left);
     void BlitOnPlayground(SDL_Surface *playground_surface);
-    bool ColidesWithPoint(SDL_Point position);
-    bool SelfColision();
+    bool ColidesWithPoint(SDL_Point position) const;
+    bool SelfColision() const;
 private:
     std::map<int, SDL_Surface*> mHeadSurfaces;
     std::map<int, SDL_Surface*> mBodySurfaces;
@@ -67,8 +67,8 @@ public:
     void LoadImages();
     void FreeSurfaces();
     void MoveRandomly();
-    SDL_Point GetTopLeft();
-    void BlitOnPlayground(SDL_Surface *playground_surface);
+    SDL_Point GetTopLeft() const;
+    void BlitOnPlayground(SDL_Surface *playground_surface) const;
 private:
     SDL_Point mTopLeft;
     int mTileSize;

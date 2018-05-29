@@ -29,9 +29,9 @@ void Playground::Clear() {
 
 
 // Getters
-SDL_Surface *Playground::GetSurface() {return mSurface;}
-SDL_Point Playground::GetTopLeft() {return mTopLeft;}
-SDL_Point Playground::GetSurfaceDims() {return mSurfaceDims;}
+SDL_Surface *Playground::GetSurface() const {return mSurface;}
+SDL_Point Playground::GetTopLeft() const {return mTopLeft;}
+SDL_Point Playground::GetSurfaceDims() const {return mSurfaceDims;}
 
 
 
@@ -64,6 +64,6 @@ void Score::Update(int gained_score, TTF_Font *font) {
 
 
 // Getters
-SDL_Surface *Score::GetSurface() {return mSurface;}
-SDL_Point Score::GetTopLeft() {return mTopLeft;}
-SDL_Point Score::GetSurfaceDims() {return mSurfaceDims;}
+SDL_Surface *Score::GetSurface() const {return mSurface;}
+SDL_Point Score::GetTopLeft() const {return mTopLeft;}
+SDL_Point Score::GetSurfaceDims() const {return mSurfaceDims;}
