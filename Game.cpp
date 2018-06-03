@@ -168,10 +168,6 @@ void Game::RenderScore() {
 
 
 void Game::Shoutdown() {
-    mPellet.FreeSurfaces();
-    mSnake.FreeSurfaces();
-    mScore.FreeSurfaces();
-    mPlayground.FreeSurfaces();
     TTF_CloseFont(mFont);
     TTF_Quit();
     IMG_Quit();

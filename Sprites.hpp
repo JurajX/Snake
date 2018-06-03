@@ -39,8 +39,13 @@ public:
     Snake(SDL_Point playground_dimensions,
           int tile_size,
           Uint32 pixel_format=SDL_PIXELFORMAT_RGBA32);
+    Snake(const Snake&) = delete;
+    Snake& operator=(const Snake&) = delete;
+    Snake(Snake&&) = delete;
+    Snake& operator=(Snake&&) = delete;
+    ~Snake();
+    
     void LoadImages();
-    void FreeSurfaces();
     void SetNewDirection(Direction direction);
     int Update(SDL_Point pellet_top_left);
     void BlitOnPlayground(SDL_Surface *playground_surface);
@@ -64,8 +69,13 @@ public:
     Pellet(SDL_Point playground_dimensions,
            int tile_size,
            Uint32 pixel_format=SDL_PIXELFORMAT_RGBA32);
+    Pellet(const Pellet&) = delete;
+    Pellet& operator=(const Pellet&) = delete;
+    Pellet(Pellet&&) = delete;
+    Pellet& operator=(Pellet&&) = delete;
+    ~Pellet();
+    
     void LoadImages();
-    void FreeSurfaces();
     void MoveRandomly();
     SDL_Point GetTopLeft() const;
     void BlitOnPlayground(SDL_Surface *playground_surface) const;

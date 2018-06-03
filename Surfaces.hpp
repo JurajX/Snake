@@ -19,7 +19,12 @@ public:
     Playground(SDL_Point top_left,
                SDL_Point dimensions,
                Uint32 pixel_format=SDL_PIXELFORMAT_RGBA32);
-    void FreeSurfaces();
+    Playground(const Playground&) = delete;
+    Playground& operator=(const Playground&) = delete;
+    Playground(Playground&&) = delete;
+    Playground& operator=(Playground&&) = delete;
+    ~Playground();
+    
     void Clear();
     SDL_Surface *GetSurface() const;
     SDL_Point GetTopLeft() const;
@@ -39,7 +44,12 @@ public:
     Score(SDL_Point top_left,
           SDL_Point dimensions,
           Uint32 pixel_format=SDL_PIXELFORMAT_RGBA32);
-    void FreeSurfaces();
+    Score(const Score&) = delete;
+    Score& operator=(const Score&) = delete;
+    Score(Score&&) = delete;
+    Score& operator=(Score&&) = delete;
+    ~Score();
+    
     void Update(int gained_score, TTF_Font *font);
     SDL_Surface *GetSurface() const;
     SDL_Point GetTopLeft() const;

@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
     SDL_Point SCORE_DIMS = {620, 50};
     int TILE_SIZE = 20;
 
-    Game game = Game(PLAYGROUND_TOP_LEFT, PLAYGROUND_DIMS, SCORE_TOP_LEFT, SCORE_DIMS, TILE_SIZE);
+    Game game(PLAYGROUND_TOP_LEFT, PLAYGROUND_DIMS, SCORE_TOP_LEFT, SCORE_DIMS, TILE_SIZE);
     bool initialised = game.Initialise();
     if (initialised) {game.RunLoop();}
     game.Shoutdown();

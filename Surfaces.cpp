@@ -20,7 +20,10 @@ Playground::Playground(SDL_Point top_left, SDL_Point dimensions, Uint32 pixel_fo
 }
 
 
-void Playground::FreeSurfaces() {SDL_FreeSurface(mSurface);}
+Playground::~Playground() {
+    SDL_FreeSurface(mSurface);
+    mSurface = nullptr;
+}
 
 
 void Playground::Clear() {
@@ -48,7 +51,10 @@ Score::Score(SDL_Point top_left, SDL_Point dimensions, Uint32 pixel_format)
 }
 
 
-void Score::FreeSurfaces() {SDL_FreeSurface(mSurface);}
+Score::~Score() {
+    SDL_FreeSurface(mSurface);
+    mSurface = nullptr;
+}
 
 
 void Score::Update(int gained_score, TTF_Font *font) {

@@ -116,7 +116,7 @@ void Snake::LoadImages() {
 }
 
 
-void Snake::FreeSurfaces() {
+Snake::~Snake() {
     for (auto surface: mHeadSurfaces) {
         SDL_FreeSurface(surface.second);
         surface.second = nullptr;}
@@ -233,11 +233,10 @@ void Pellet::LoadImages() {
 }
 
 
-void Pellet::FreeSurfaces() {
+Pellet::~Pellet() {
     for (auto surface: mSurfaces) {
         SDL_FreeSurface(surface);
-        surface = nullptr;
-    }
+        surface = nullptr;}
 }
 
 
@@ -250,9 +249,7 @@ void Pellet::MoveRandomly() {
 }
 
 
-SDL_Point Pellet::GetTopLeft() const {
-    return mTopLeft;
-}
+SDL_Point Pellet::GetTopLeft() const {return mTopLeft;}
 
 
 void Pellet::BlitOnPlayground(SDL_Surface *playground_surface) const {
