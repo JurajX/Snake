@@ -31,42 +31,42 @@ bool Game::Initialise() {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         SDL_Log("Failed to initialise SDL: %s", SDL_GetError());
         return false;}
-    
+
     int WIDTH = mScore.GetSurfaceDims().x;       // score_width          // ________________
     int HEIGHT =  mPlayground.GetTopLeft().y     // score_height+border  // |    score     |
                  +mPlayground.GetSurfaceDims().y // playground_height    // ================
                  +mPlayground.GetTopLeft().x;    // border               // || playground ||
                                                                          // ================
-    
+
     mWindow = SDL_CreateWindow("Snake Game", 330, 50, WIDTH, HEIGHT, 0);
     if (!mWindow) {
         SDL_Log("Failed to create window: %s", SDL_GetError());
         return false;}
-    
+
     Uint32 rndrFlags = SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC;
     mRenderer = SDL_CreateRenderer(mWindow, -1, rndrFlags);
     if (!mRenderer) {
         SDL_Log("Failed to create renderer: %s", SDL_GetError());
         return false;}
-    
+
     int imgFlags = IMG_INIT_PNG; //| IMG_INIT_JPG | IMG_INIT_TIF;
     int imgInit = IMG_Init(imgFlags);
     if ((imgInit&imgFlags) != imgFlags) {
         SDL_Log("Failed to initialise SDL_image: %s", IMG_GetError());
         return false;
     }
-    
+
     if (TTF_Init()==-1) {
         SDL_Log("Failed to initialise SDL_ttf: %s", TTF_GetError());
         return false;
     }
 
-    mFont = TTF_OpenFont("Fonts/actionj.ttf", mScore.GetSurfaceDims().y);
+    mFont = TTF_OpenFont("../Fonts/actionj.ttf", mScore.GetSurfaceDims().y);
     if (mFont == nullptr) {
         SDL_Log("Failed to open font: %s", TTF_GetError());
         return false;
     }
-        
+
     return true;
 }
 
@@ -117,7 +117,7 @@ void Game::UpdateGame() {
     // Wait untill the previous call to UpdateGame and this one is >= mDelay.
     while (!SDL_TICKS_PASSED(SDL_GetTicks(), mTicksCount + mDelay));
     mTicksCount = SDL_GetTicks();
-    
+
     int scoreGain = mSnake.Update(mPellet.GetTopLeft());
     if (mSnake.SelfColision()) {mIsRunning = false;}
     while (mSnake.ColidesWithPoint(mPellet.GetTopLeft())) { mPellet.MoveRandomly();}
@@ -133,10 +133,10 @@ void Game::UpdateGame() {
 void Game::GenerateOutput() {
     SDL_SetRenderDrawColor(mRenderer, 0, 0, 0, 255);
     SDL_RenderClear(mRenderer);
-    
+
     this->RenderPlayground();
     this->RenderScore();
-    
+
     SDL_RenderPresent(mRenderer);
 }
 

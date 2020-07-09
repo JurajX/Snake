@@ -8,9 +8,9 @@
 #ifndef Game_hpp
 #define Game_hpp
 
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_ttf.h"
-#include "SDL2/SDL_image.h"
+#include "SDL.h"
+#include "SDL_ttf.h"
+#include "SDL_image.h"
 #include "Sprites.hpp"
 #include "Surfaces.hpp"
 
@@ -29,14 +29,14 @@ public:
     bool Initialise();
     void RunLoop();
     void Shoutdown();
-    
+
 private:
     void ProcessInput();
     void UpdateGame();
     void GenerateOutput();
     void RenderPlayground();
     void RenderScore();
-    
+
     bool mIsRunning;
     Uint32 mDelay;
     Uint32 mTicksCount;
@@ -44,7 +44,7 @@ private:
     SDL_Window *mWindow;
     SDL_Renderer *mRenderer;
     TTF_Font *mFont;
-    
+
     Playground mPlayground;
     Score mScore;
     Snake mSnake;

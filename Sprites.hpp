@@ -8,8 +8,8 @@
 #ifndef Sprites_hpp
 #define Sprites_hpp
 
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_image.h"
+#include "SDL.h"
+#include "SDL_image.h"
 #include <vector>
 #include <map>
 #include <string>
@@ -22,7 +22,7 @@
 // are equal. Keep this in mind, it will become useful in Snake::LoadImages().
 enum class Direction :int { UP=1, DOWN=2, RIGHT=4, LEFT=7 };
 
-    
+
 struct Part {
     SDL_Point pt;
     Direction front;
@@ -44,7 +44,7 @@ public:
     Snake(Snake&&) = delete;
     Snake& operator=(Snake&&) = delete;
     ~Snake();
-    
+
     void LoadImages();
     void SetNewDirection(Direction direction);
     int Update(SDL_Point pellet_top_left);
@@ -74,7 +74,7 @@ public:
     Pellet(Pellet&&) = delete;
     Pellet& operator=(Pellet&&) = delete;
     ~Pellet();
-    
+
     void LoadImages();
     void MoveRandomly();
     SDL_Point GetTopLeft() const;

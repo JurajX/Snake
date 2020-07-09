@@ -8,8 +8,8 @@
 #ifndef Surfaces_hpp
 #define Surfaces_hpp
 
-#include "SDL2/SDL.h"
-#include "SDL2/SDL_ttf.h"
+#include "SDL.h"
+#include "SDL_ttf.h"
 
 
 //-------------------- Playground class
@@ -24,7 +24,7 @@ public:
     Playground(Playground&&) = delete;
     Playground& operator=(Playground&&) = delete;
     ~Playground();
-    
+
     void Clear();
     SDL_Surface *GetSurface() const;
     SDL_Point GetTopLeft() const;
@@ -49,7 +49,7 @@ public:
     Score(Score&&) = delete;
     Score& operator=(Score&&) = delete;
     ~Score();
-    
+
     void Update(int gained_score, TTF_Font *font);
     SDL_Surface *GetSurface() const;
     SDL_Point GetTopLeft() const;

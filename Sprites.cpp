@@ -59,7 +59,7 @@ Snake::Snake(SDL_Point playground_dimensions, int tile_size, Uint32 pixel_format
     Part tail = {{0, 0}, Direction::DOWN};
     mBodyParts = {tail, body, head};
     mDirection = {Direction::DOWN};
-    
+
     this->LoadImages();
 }
 
@@ -67,37 +67,37 @@ Snake::Snake(SDL_Point playground_dimensions, int tile_size, Uint32 pixel_format
 void Snake::LoadImages() {
     // Load head images and store them in the mHeadSurfaces map,
     // keys are the int representation of Direction.
-    SDL_Surface *head_u = IMG_Load("Images/head_up.png");
-    SDL_Surface *head_d = IMG_Load("Images/head_down.png");
-    SDL_Surface *head_r = IMG_Load("Images/head_right.png");
-    SDL_Surface *head_l = IMG_Load("Images/head_left.png");
+    SDL_Surface *head_u = IMG_Load("../Images/head_up.png");
+    SDL_Surface *head_d = IMG_Load("../Images/head_down.png");
+    SDL_Surface *head_r = IMG_Load("../Images/head_right.png");
+    SDL_Surface *head_l = IMG_Load("../Images/head_left.png");
     if (head_u == nullptr or head_d == nullptr or head_r == nullptr or head_l == nullptr) {
         SDL_Log("Failed to load one of the head images: %s", IMG_GetError());}
-    
+
     mHeadSurfaces[static_cast<int>(Direction::UP)] = head_u;
     mHeadSurfaces[static_cast<int>(Direction::DOWN)] = head_d;
     mHeadSurfaces[static_cast<int>(Direction::RIGHT)] = head_r;
     mHeadSurfaces[static_cast<int>(Direction::LEFT)] = head_l;
 
     // load tail images
-    SDL_Surface *tail_u = IMG_Load("Images/tail_up.png");
-    SDL_Surface *tail_d = IMG_Load("Images/tail_down.png");
-    SDL_Surface *tail_r = IMG_Load("Images/tail_right.png");
-    SDL_Surface *tail_l = IMG_Load("Images/tail_left.png");
+    SDL_Surface *tail_u = IMG_Load("../Images/tail_up.png");
+    SDL_Surface *tail_d = IMG_Load("../Images/tail_down.png");
+    SDL_Surface *tail_r = IMG_Load("../Images/tail_right.png");
+    SDL_Surface *tail_l = IMG_Load("../Images/tail_left.png");
     if (tail_u == nullptr or tail_d == nullptr or tail_r == nullptr or tail_l == nullptr) {
         SDL_Log("Failed to load one of the tail images: %s", IMG_GetError());}
-    
+
     // load body images
-    SDL_Surface *body_ud = IMG_Load("Images/body_up_down.png");
-    SDL_Surface *body_rl = IMG_Load("Images/body_right_left.png");
-    SDL_Surface *body_ur = IMG_Load("Images/body_up_right.png");
-    SDL_Surface *body_ul = IMG_Load("Images/body_up_left.png");
-    SDL_Surface *body_dr = IMG_Load("Images/body_down_right.png");
-    SDL_Surface *body_dl = IMG_Load("Images/body_down_left.png");
+    SDL_Surface *body_ud = IMG_Load("../Images/body_up_down.png");
+    SDL_Surface *body_rl = IMG_Load("../Images/body_right_left.png");
+    SDL_Surface *body_ur = IMG_Load("../Images/body_up_right.png");
+    SDL_Surface *body_ul = IMG_Load("../Images/body_up_left.png");
+    SDL_Surface *body_dr = IMG_Load("../Images/body_down_right.png");
+    SDL_Surface *body_dl = IMG_Load("../Images/body_down_left.png");
     if (body_ud == nullptr or body_rl == nullptr or body_ur == nullptr or
         body_ul == nullptr or body_dr == nullptr or body_dl == nullptr) {
         SDL_Log("Failed to load one of the body images: %s", IMG_GetError());}
-    
+
     // Here comes handy the fact that snake's body parts only connect either two different directions,
     // i.e. UP and RIGHT; or, in case of tail, connect to only one direction. Hence, I can sum
     // (int representations of) these directions to lable the body parts and store them in a map.
@@ -106,7 +106,7 @@ void Snake::LoadImages() {
     mBodySurfaces[static_cast<int>(Direction::DOWN)] = tail_d;
     mBodySurfaces[static_cast<int>(Direction::RIGHT)] = tail_r;
     mBodySurfaces[static_cast<int>(Direction::LEFT)] = tail_l;
-    
+
     mBodySurfaces[static_cast<int>(Direction::UP)+static_cast<int>(Direction::DOWN)] = body_ud;
     mBodySurfaces[static_cast<int>(Direction::RIGHT)+static_cast<int>(Direction::LEFT)] = body_rl;
     mBodySurfaces[static_cast<int>(Direction::UP)+static_cast<int>(Direction::RIGHT)] = body_ur;
@@ -142,7 +142,7 @@ void Snake::SetNewDirection(Direction direction) {
 int Snake::Update(SDL_Point pellet_top_left) {
     // Move the snake in the newly set direction, and check for collisions with pellet.
     // Return the score gained; i.e. 1 if the snake ate a pellet, 0 otherwise.
-    Part nextHead = mBodyParts.back();    
+    Part nextHead = mBodyParts.back();
     if (mDirection == Direction::UP) {
         if (mBodyParts.back().pt.y == 0) {nextHead.pt.y = mPlaygroundDims.y-mTileSize;}
         else {nextHead.pt.y -= mTileSize;}
@@ -160,7 +160,7 @@ int Snake::Update(SDL_Point pellet_top_left) {
         else {nextHead.pt.x -= mTileSize;}
         nextHead.front = Direction::LEFT;
     }
-    
+
     bool peletEaten = (pellet_top_left == nextHead.pt) ? true : false;
     if (!peletEaten) {
         for (int i=0; i < mBodyParts.size()-1; i++) {
@@ -224,9 +224,9 @@ Pellet::Pellet(SDL_Point playground_dimensions, int tile_size, Uint32 pixel_form
 
 
 void Pellet::LoadImages() {
-    SDL_Surface *apple = IMG_Load("Images/apple.png");
-    SDL_Surface *cherry = IMG_Load("Images/cherry.png");
-    SDL_Surface *watermelon = IMG_Load("Images/watermelon.png");
+    SDL_Surface *apple = IMG_Load("../Images/apple.png");
+    SDL_Surface *cherry = IMG_Load("../Images/cherry.png");
+    SDL_Surface *watermelon = IMG_Load("../Images/watermelon.png");
     if (apple == nullptr or cherry == nullptr or watermelon == nullptr) {
         SDL_Log("Failed to load apple, cherry or watermelon: %s", IMG_GetError()); }
     mSurfaces = {apple, cherry, watermelon};
