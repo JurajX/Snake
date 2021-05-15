@@ -10,10 +10,10 @@ file( GLOB snake_src "*.cpp" )
 add_executable(Snake ${snake_src})
 
 find_package( PkgConfig REQUIRED )
-pkg_check_modules( sdl2 REQUIRED IMPORTED_TARGET sdl2 )
+pkg_check_modules( SDL2 REQUIRED IMPORTED_TARGET sdl2 )
 pkg_check_modules( SDL2_ttf REQUIRED IMPORTED_TARGET SDL2_ttf )
 pkg_check_modules( SDL2_image REQUIRED IMPORTED_TARGET SDL2_image )
 
-target_link_libraries( Snake PRIVATE PkgConfig::sdl2 )
+target_link_libraries( Snake PRIVATE PkgConfig::SDL2 )
 target_link_libraries( Snake PRIVATE PkgConfig::SDL2_ttf )
 target_link_libraries( Snake PRIVATE PkgConfig::SDL2_image )
